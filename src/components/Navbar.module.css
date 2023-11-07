@@ -1,0 +1,17 @@
+.nav {
+    grid-area: nav;
+    background-color: darkkhaki;
+}
+
+.items {
+    margin-top: 20px;
+}
+
+.item {
+    margin-left: 30%;
+    color: aquamarine;
+}
+
+.active {
+    color: crimson;
+}

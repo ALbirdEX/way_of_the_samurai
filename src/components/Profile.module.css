@@ -1,0 +1,35 @@
+.content {
+    grid-area: content;
+    background-color: #5c8015;
+}
+
+.content img {
+    width: 1650px;
+}
+
+.posts {
+    margin-top: 20px;
+}
+
+.item {
+    margin-left: 30px;
+    color: aqua;
+}
+
+.button {
+    width: 100px;
+    border-color: rebeccapurple;
+    border-radius: 20px;
+}
+
+.input {
+    width: 100px;
+    border-color: rebeccapurple;
+    border-radius: 20px;
+}
+
+.bar {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
