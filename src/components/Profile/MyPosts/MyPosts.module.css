@@ -1,0 +1,22 @@
+.button {
+    width: 100px;
+    background-color: darkslategray;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 20px;
+}
+.input {
+    width: 100px;
+    border-color: rebeccapurple;
+    border-radius: 20px;
+}
+
+.bar {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.posts {
+    margin-top: 20px;
+}
