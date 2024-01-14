@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from './MyPosts.module.css';
-import {Post} from "./Post/Post";
+import {Post} from './Post/Post';
 
 export const MyPosts = () => {
     const [text, setText] = useState('')
@@ -16,7 +16,7 @@ export const MyPosts = () => {
     return <div className={s.bar}>
         My posts
         <button className={s.button}
-                onClick={() => alert("GO brooooo!!!")}>+</button>
+                onClick={() => alert('GO brooooo!!!')}>+</button>
         <div>
             New post
             <input className={s.input}
