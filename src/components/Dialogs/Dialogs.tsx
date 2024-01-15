@@ -2,36 +2,47 @@ import React from 'react';
 import s from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
+
+type DialogItemPopsType = {
+    name: string
+    id: string
+}
+type MessagePropsType = {
+    message: string
+}
+
+const DialogItem = (props: DialogItemPopsType) => {
+    return (
+        <div className={s.dialog}>
+            <NavLink to={`/dialogs/${props.id}`} activeClassName={s.activeDialog}>{props.name}</NavLink>
+        </div>
+    )
+}
+
+
+const Message = (props: MessagePropsType) => {
+    return (
+        <div className={s.message}>
+            {props.message}
+        </div>
+    )
+}
+
+
 export const Dialogs = () => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogItems}>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/1"activeClassName={s.activeDialog}>Dimych</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/2"activeClassName={s.activeDialog}>Victor</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/3"activeClassName={s.activeDialog}>Andrei</NavLink>
-                </div>
-                <div className={s.dialog}>
-                    <NavLink to="/dialogs/4"activeClassName={s.activeDialog}>I</NavLink>
-                </div>
+                <DialogItem name={"Dimych"} id={"1"}/>
+                <DialogItem name={"Victor"} id={"2"}/>
+                <DialogItem name={"Andrei"} id={"3"}/>
+                <DialogItem name={"I"} id={"4"}/>
             </div>
             <div className={s.messages}>
-                <div className={s.message}>
-                    Hi? who is it
-                </div>
-                <div className={s.message}>
-                    Hi,who is it?
-                </div>
-                <div className={s.message}>
-                    WTF...
-                </div>
-                <div className={s.message}>
-                    It is perfect
-                </div>
+                <Message message={"Hi? who is it"}/>
+                <Message message={"Hi,who is it?"}/>
+                <Message message={"WTF..."}/>
+                <Message message={"It is perfect"}/>
             </div>
         </div>
     );

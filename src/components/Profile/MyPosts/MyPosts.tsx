@@ -14,11 +14,11 @@ export const MyPosts = () => {
     }
 
     return <div className={s.bar}>
-        My posts
+        <h3>My posts</h3>
         <button className={s.button}
                 onClick={() => alert('GO brooooo!!!')}>+</button>
         <div>
-            New post
+            <h2>New post </h2>
             <input className={s.input}
                    onChange={onChangeHandler}
                    value={text}/>
