@@ -21,13 +21,13 @@ export type DialogsPageType = {
 export type ProfilePageType = {
     posts: PostType[]
 }
-export type StateType = {
+export type RootStateType = {
     profilePage: ProfilePageType,
     dialogsPage: DialogsPageType,
     sidebar: SidebarType
 }
 
-export const state: StateType = {
+export const state: RootStateType = {
     profilePage: {
         posts: [
             {id: 1, message: 'Hello world', likesCount: 1},

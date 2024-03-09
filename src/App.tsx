@@ -9,10 +9,10 @@ import {News} from "./components/New/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Setting/Settings";
 import {DialogType, MessageType, PostDataType} from "./index";
-import {StateType} from "./components/redux/state";
+import {RootStateType} from "./components/redux/state";
 
 type  AppPropsType = {
-    state: StateType,
+    state: RootStateType,
     posts: PostDataType[],
     dialogs: DialogType[],
     messages: MessageType[]
