@@ -9,8 +9,10 @@ import {News} from "./components/New/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Setting/Settings";
 import {DialogType, MessageType, PostDataType} from "./index";
+import {StateType} from "./components/redux/state";
 
 type  AppPropsType = {
+    state: StateType,
     posts: PostDataType[],
     dialogs: DialogType[],
     messages: MessageType[]
@@ -23,8 +25,8 @@ export const App = (props: AppPropsType) => {
                 <Header/>
                 <Navbar/>
                 <div className={'app-wrapper-content'}>
-                    <Route path="/dialogs" render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                    <Route path="/profile" render={() => <Profile posts={props.posts}/>}/>
+                    <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                    <Route path="/profile" render={() => <Profile state={props.state.profilePage}/>}/>
                     <Route path="/news" component={News}/>
                     <Route path="/music" component={Music}/>
                     <Route path="/settings" component={Settings}/>

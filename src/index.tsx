@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import {App} from './App';
+import {state} from "./components/redux/state";
 
 export type PostDataType = {
     id: number,
@@ -43,6 +44,7 @@ export const messages: MessageType[] = [
 
 ReactDOM.render(
     <App
+        state={state}
         posts={posts}
         dialogs={dialogs}
         messages={messages}/>,

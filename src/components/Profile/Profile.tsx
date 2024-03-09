@@ -1,13 +1,15 @@
 import React from 'react';
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {PostDataType} from "../../index";
+import {ProfilePageType} from "../redux/state";
 
 type ProfilePropsType = {
-    posts: PostDataType[]
+    state: ProfilePageType
 }
 
-export const Profile: React.FC<ProfilePropsType> = ({posts}) => { //деструктуризация
+export const Profile: React.FC<ProfilePropsType> = (props) => {
+
+    const {posts} = props.state   //деструктуризация
 
     return (
         <div>
