@@ -7,6 +7,14 @@
     padding: 20px;
 }
 
+.dialog img {
+    margin-top: 15px;
+    margin-right: 15px;
+    width: 50px;
+    border-radius: 25px;
+    border-color: crimson;
+}
+
 .dialog a {
     text-decoration: none;
     color: black;
@@ -22,4 +30,12 @@
 
 .message {
     padding: 20px;
+}
+
+.message img {
+    margin-top: 15px;
+    margin-right: 15px;
+    width: 50px;
+    border-radius: 25px;
+    border-color: crimson;
 }

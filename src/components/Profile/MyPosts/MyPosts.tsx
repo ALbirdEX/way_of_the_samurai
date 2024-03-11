@@ -1,10 +1,10 @@
 import React, {ChangeEvent, useState} from 'react';
 import s from './MyPosts.module.css';
 import {Post} from './Post/Post';
-import {PostDataType} from "../../../index";
+import {PostType} from "../../redux/state";
 
 type MyPostsPropsType = {
-    posts: PostDataType[]
+    posts: PostType[]
 }
 
 export const MyPosts = (props: MyPostsPropsType) => {

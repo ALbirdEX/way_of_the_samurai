@@ -1,5 +1,6 @@
-export type SidebarType = {
-
+export type FriendType = {
+    id: number,
+    name: string
 }
 export type MessageType = {
     id: number,
@@ -13,6 +14,9 @@ export type PostType = {
     id: number,
     message: string,
     likesCount: number
+}
+export type SidebarType = {
+    friends: FriendType[]
 }
 export type DialogsPageType = {
     messages: MessageType[],
@@ -50,5 +54,11 @@ export const state: RootStateType = {
             {id: 4, message: 'It is perfect'}
         ]
     },
-    sidebar: {}
+    sidebar: {
+        friends: [
+            {id: 1, name: 'Fedor'},
+            {id: 2, name: 'Vica'},
+            {id: 3, name: 'Andrei'}
+        ]
+    }
 }

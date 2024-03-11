@@ -1,0 +1,11 @@
+.sidebarItems {
+  padding-top: 50px;
+
+}
+
+.img {
+    width: 40px;
+    border-radius: 25px;
+    border-color: crimson;
+    padding-left: 10px;
+}
