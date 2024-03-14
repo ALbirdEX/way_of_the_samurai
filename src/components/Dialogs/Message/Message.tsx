@@ -1,5 +1,6 @@
 import s from "../Dialogs.module.css";
 import React from "react";
+import {AddNewItem} from "../../AddNewItem";
 
 type MessagePropsType = {
     message: string
@@ -12,5 +13,6 @@ export const Message = (props: MessagePropsType) => {
                 alt={'ava'}/>
             {props.message}
         </div>
+
     )
 }

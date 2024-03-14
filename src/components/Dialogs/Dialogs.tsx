@@ -3,9 +3,10 @@ import s from './Dialogs.module.css'
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
 import {DialogsPageType} from "../redux/state";
+import {AddNewItem} from "../AddNewItem";
 
-type DialogsPropsType ={
-   state: DialogsPageType
+type DialogsPropsType = {
+    state: DialogsPageType
 }
 
 export const Dialogs: React.FC<DialogsPropsType> = (props) => {
@@ -22,6 +23,7 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
             </div>
             <div className={s.messages}>
                 {messageElement}
+                <AddNewItem/>
             </div>
         </div>
     );
