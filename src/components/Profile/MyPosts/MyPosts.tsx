@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import s from './MyPosts.module.css';
 import {Post} from './Post/Post';
 import {PostType} from "../../redux/state";
@@ -6,13 +6,15 @@ import {AddNewItem} from "../../AddNewItem";
 
 type MyPostsPropsType = {
     posts: PostType[]
-    addPost: (postMessage: string) => void
+    newPostText: string
+    addPost: () => void
+    updateNewPostText: (newText: string) => void
 }
 
 export const MyPosts = (props: MyPostsPropsType) => {
     /*const [text, setText] = useState('')
 
-    const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const onPostChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setText(event.currentTarget.value)
     }
     const addPost = () => {
@@ -22,11 +24,13 @@ export const MyPosts = (props: MyPostsPropsType) => {
 
     let newPostElement = React.createRef<HTMLTextAreaElement>()
 
+    const onPostChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+        props.updateNewPostText(event.currentTarget.value)
+    }
+
     const addPost = () => {
         if (newPostElement.current) {
-            
-            props.addPost(newPostElement.current.value)
-            newPostElement.current.value = ''
+            props.addPost()
             //let text = newPostElement.current.value
             //addPost(text)
         }
@@ -42,9 +46,11 @@ export const MyPosts = (props: MyPostsPropsType) => {
         <div>
             <h2>New post </h2>
             {/*<input className={s.input}
-                   onChange={onChangeHandler}
+                   onChange={onPostChangeHandler}
                    value={text}/>*/}
-            <textarea ref={newPostElement}></textarea>
+            <textarea ref={newPostElement}
+                      value={props.newPostText}
+                      onChange={onPostChange}/>
             <button className={s.button}
                     onClick={addPost}>
                 add post
