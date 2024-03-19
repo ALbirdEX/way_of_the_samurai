@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../../render";
+
 export type FriendType = {
     id: number,
     name: string
@@ -61,4 +63,14 @@ export const state: RootStateType = {
             {id: 3, name: 'Andrei'}
         ]
     }
+}
+
+export const addPost = (postMessage: string) => {
+    const newPost: PostType= {
+        id: new Date().getTime(),
+        message: postMessage,
+        likesCount: 0
+    }
+    state.profilePage.posts.push(newPost)
+    rerenderEntireTree(state)
 }
