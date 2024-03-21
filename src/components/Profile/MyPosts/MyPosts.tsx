@@ -55,7 +55,9 @@ export const MyPosts = (props: MyPostsPropsType) => {
                     onClick={addPost}>
                 add post
             </button>
-            <AddNewItem/>
+
+            {/*<AddNewItem/>*/}
+
         </div>
         <div className={s.posts}>
             {postsElements}
