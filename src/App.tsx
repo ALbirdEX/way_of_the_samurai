@@ -8,28 +8,23 @@ import {Route} from "react-router-dom";
 import {News} from "./components/New/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Setting/Settings";
-import {RootStateType} from "./components/redux/state";
+import {ActionsTypes, RootStateType} from "./components/redux/state";
 
 type  AppPropsType = {
     state: RootStateType
-    addPost: () => void
-    updateNewPostText: (newText: string) => void
-    addMessage: () => void
-    updateNewMessageText: (newMessageText:string) => void
+    dispatch: (action: ActionsTypes) => void
 }
 
-export const App: React.FC<AppPropsType>= (props) => {
+export const App: React.FC<AppPropsType> = (props) => {
     return (
         <div className={'app-wrapper'}>
             <Header/>
             <Navbar state={props.state.sidebar}/>
             <div className={'app-wrapper-content'}>
                 <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage}
-                                                              addMessage={props.addMessage}
-                                                              updateNewMessageText={props.updateNewMessageText}/>}/>
+                                                              dispatch={props.dispatch}/>}/>
                 <Route path="/profile" render={() => <Profile state={props.state.profilePage}
-                                                              addPost={props.addPost}
-                                                              updateNewPostText={props.updateNewPostText}/>}/>
+                                                              dispatch={props.dispatch}/>}/>
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
                 <Route path="/settings" component={Settings}/>

@@ -1,9 +1,9 @@
 import React, {ChangeEvent} from 'react';
 import s from "./Profile/MyPosts/MyPosts.module.css";
+import {ActionsTypes} from "./redux/state";
 
 type AddNewItemPropsType = {
-    addMessage: () => void
-    updateNewMessageText: (newMessageText: string) => void
+    dispatch: (action: ActionsTypes) => void
     newMessageText: string
 }
 
@@ -11,15 +11,20 @@ export const AddNewItem = (props: AddNewItemPropsType) => {
     let newPostElement = React.createRef<HTMLInputElement>()
 
     const addPost = () => {
-        props.addMessage()
+        props.dispatch({type: "ADD-MESSAGE"})
+        //props.addMessage()
         /* let text = newPostElement.current?.value
          alert(text)*/
     }
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+        props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT",
+            newMessageText: event.currentTarget
+                ? event.currentTarget.value
+                : ''})
 
-        props.updateNewMessageText(event.currentTarget
+        /*props.updateNewMessageText(event.currentTarget
             ? event.currentTarget.value
-            : '')
+            : '')*/
     }
     return (
         <div>
