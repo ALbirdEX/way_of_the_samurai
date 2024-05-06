@@ -45,25 +45,20 @@ export type StoreType = {
     dispatch: (action: ActionsTypes) => void
 }
 
-export type AddPostActionType = {
-    type: "ADD-POST"
-}
-export type UpdateNewPostText = {
-    type: "UPDATE-NEW-POST-TEXT"
-    newText: string
-}
-export type AddMessage = {
-    type: "ADD-MESSAGE"
-}
-export type UpdateNewMessageText = {
-    type: "UPDATE-NEW-MESSAGE-TEXT"
-    newMessageText: string
-}
+/*export type AddPostActionType = ReturnType<typeof addPostAC>
+export type UpdateNewPostText = ReturnType<typeof updateNewPostTextAC>
+export type AddMessage = ReturnType<typeof addMessageAC>
+export type UpdateNewMessageText = ReturnType<typeof updateNewMessageTextAC>
 
 export type ActionsTypes = AddPostActionType
     | UpdateNewPostText
     | AddMessage
-    | UpdateNewMessageText
+    | UpdateNewMessageText*/
+
+export type ActionsTypes = ReturnType<typeof addPostAC>
+    | ReturnType<typeof updateNewPostTextAC>
+    | ReturnType<typeof addMessageAC>
+    | ReturnType<typeof updateNewMessageTextAC>
 
 export const store: StoreType = {
     _state: {
@@ -174,11 +169,15 @@ export const store: StoreType = {
                 throw new Error('I don\'t understand this type')
         }
     }
-
 }
 
-
-
+export const addPostAC = () => ({type: "ADD-POST"}) as const
+export const updateNewMessageTextAC = (newMessageText: string) => ({
+    type: "UPDATE-NEW-MESSAGE-TEXT",
+    newMessageText
+}) as const
+export const addMessageAC = () => ({type: "ADD-MESSAGE"}) as const
+export const updateNewPostTextAC = (newText: string) => ({type: "UPDATE-NEW-POST-TEXT", newText}) as const
 
 
 
