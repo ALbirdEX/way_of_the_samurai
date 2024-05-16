@@ -1,16 +1,17 @@
 import React, {ChangeEvent} from 'react';
 import s from "./Profile/MyPosts/MyPosts.module.css";
-import {ActionsTypes, addMessageAC, updateNewMessageTextAC} from "./redux/state";
+
+import {addMessageAC, DialogActionsTypes, updateNewMessageTextAC} from "./redux/dialogsReducer";
 
 type AddNewItemPropsType = {
-    dispatch: (action: ActionsTypes) => void
+    dispatch: (action: DialogActionsTypes) => void
     newMessageText: string
 }
 
 
 
 export const AddNewItem = (props: AddNewItemPropsType) => {
-    let newPostElement = React.createRef<HTMLInputElement>()
+    //let newPostElement = React.createRef<HTMLInputElement>()
 
     const addPost = () => {
         props.dispatch(addMessageAC())
@@ -24,7 +25,6 @@ export const AddNewItem = (props: AddNewItemPropsType) => {
                  ? event.currentTarget.value
                  : ''})   */
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-
         props.dispatch(updateNewMessageTextAC(event.currentTarget
             ? event.currentTarget.value
             : ''))
@@ -37,7 +37,8 @@ export const AddNewItem = (props: AddNewItemPropsType) => {
         <div>
             <h2>New post </h2>
             <input className={s.input}
-                   ref={newPostElement}
+                   placeholder={'you tex'}
+                   //ref={newPostElement}
                    value={props.newMessageText}
                    onChange={onChangeHandler}/>
             <button className={s.button}
