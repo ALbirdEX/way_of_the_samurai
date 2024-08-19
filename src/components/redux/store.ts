@@ -76,7 +76,6 @@ export const store: StoreType = {
                 {id: 4, message: 'It is perfect'}
             ],
             newMessageText: ''
-
         },
         sidebar: {
             friends: [

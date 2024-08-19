@@ -9,7 +9,6 @@ type AddNewItemPropsType = {
 }
 
 
-
 export const AddNewItem = (props: AddNewItemPropsType) => {
     //let newPostElement = React.createRef<HTMLInputElement>()
 
@@ -38,7 +37,7 @@ export const AddNewItem = (props: AddNewItemPropsType) => {
             <h2>New post </h2>
             <input className={s.input}
                    placeholder={'you tex'}
-                   //ref={newPostElement}
+                //ref={newPostElement}
                    value={props.newMessageText}
                    onChange={onChangeHandler}/>
             <button className={s.button}
