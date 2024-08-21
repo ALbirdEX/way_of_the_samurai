@@ -1,23 +1,24 @@
 import React from 'react';
 import {MyPosts} from "./MyPosts/MyPosts";
 import {ProfileInfo} from "./ProfileInfo/ProfileInfo";
-import {ActionsTypes, ProfilePageType} from "../redux/store";
+import {PostType} from "../redux/profileReducer";
 
 type ProfilePropsType = {
-    state: ProfilePageType
-    dispatch: (action: ActionsTypes) => void
+    posts: PostType[]
+    newPostText: string
+    onPostChange: (text: string) => void
+    onAddPost: () => void
 }
 
 export const Profile: React.FC<ProfilePropsType> = (props) => {
 
-    const {posts, newPostText, } = props.state   //деструктуризация
-
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts posts={posts}
-                     dispatch={props.dispatch}
-                     newPostText={newPostText}/>
+            <MyPosts posts={props.posts}
+                     newPostText={props.newPostText}
+                     onAddPost={props.onAddPost}
+                     onPostChange={props.onPostChange}/>
         </div>
     )
 };

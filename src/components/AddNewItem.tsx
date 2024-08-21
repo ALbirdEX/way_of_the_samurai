@@ -1,37 +1,29 @@
 import React, {ChangeEvent} from 'react';
 import s from "./Profile/MyPosts/MyPosts.module.css";
-
-import {addMessageAC, DialogActionsTypes, updateNewMessageTextAC} from "./redux/dialogsReducer";
+import {DialogActionsTypes} from "./redux/dialogsReducer";
 
 type AddNewItemPropsType = {
-    dispatch: (action: DialogActionsTypes) => void
     newMessageText: string
+    onChangeHandler: (text: string) => void
+    addPost: () => void
 }
-
 
 export const AddNewItem = (props: AddNewItemPropsType) => {
     //let newPostElement = React.createRef<HTMLInputElement>()
 
     const addPost = () => {
-        props.dispatch(addMessageAC())
-        //props.addMessage()
-        /* let text = newPostElement.current?.value
-         alert(text)*/
+        props.addPost()
     }
+
     /* const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
          props.dispatch({type: "UPDATE-NEW-MESSAGE-TEXT",
              newMessageText: event.currentTarget
                  ? event.currentTarget.value
                  : ''})   */
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        props.dispatch(updateNewMessageTextAC(event.currentTarget
-            ? event.currentTarget.value
-            : ''))
-
-        /*props.updateNewMessageText(event.currentTarget
-            ? event.currentTarget.value
-            : '')*/
+        props.onChangeHandler(event.currentTarget.value)
     }
+
     return (
         <div>
             <h2>New post </h2>
