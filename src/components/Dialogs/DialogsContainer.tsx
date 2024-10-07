@@ -1,16 +1,14 @@
 import React from 'react';
-import {DialogsPageType} from "../redux/store";
-import {addMessageAC, DialogActionsTypes, updateNewMessageTextAC} from "../redux/dialogsReducer";
+import {addMessageAC, DialogActionsTypes, DialogsPageType, updateNewMessageTextAC} from "../redux/dialogsReducer";
 import {Dialogs} from "./Dialogs";
 import {StoreContext} from "../../StoreContext";
-import {reduxStore} from "../redux/reduxStore";
 
 type DialogsPropsType = {
     state: DialogsPageType
     dispatch: (action: DialogActionsTypes) => void
 }
 
-export const DialogsContainer: React.FC<DialogsPropsType> = (props) => {
+export const DialogsContainer: React.FC<DialogsPropsType> = () => {
 
     /* const {dialogs, messages, newMessageText} = props.state  //деструктуризация
 
@@ -26,7 +24,7 @@ export const DialogsContainer: React.FC<DialogsPropsType> = (props) => {
 
     return <StoreContext.Consumer>
         {(reduxStore) => {
-            const {dialogs, messages, newMessageText} = reduxStore.getState().dialogPage  //деструктуризация
+            const {dialogs, messages, newMessageText} = reduxStore.getState().dialogsPage  //деструктуризация
 
             const onAddPost = () => {
                 reduxStore.dispatch(addMessageAC())

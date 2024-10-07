@@ -5,10 +5,10 @@ import sidebarReducer from "./sidebarReducer";
 
 const rootReducer = combineReducers({
     profilePage: profileReducer,
-    dialogPage: dialogsReducer,
+    dialogsPage: dialogsReducer,
     sidebar: sidebarReducer
 })
 
 export const reduxStore = createStore(rootReducer);
 
-export type AppRootStateType = ReturnType<typeof rootReducer>;
+export type AppRootStateType = ReturnType<typeof reduxStore.getState>;

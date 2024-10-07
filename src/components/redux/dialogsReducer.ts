@@ -1,3 +1,5 @@
+import {ActionsTypes} from "./store";
+
 export type DialogActionsTypes = ReturnType<typeof addMessageAC>
     | ReturnType<typeof updateNewMessageTextAC>
 
@@ -31,7 +33,7 @@ const initialState: DialogsPageType = {
         newMessageText: ''
     }
 
-const dialogsReducer = (state: DialogsPageType = initialState, action: DialogActionsTypes): DialogsPageType => {
+const dialogsReducer = (state: DialogsPageType = initialState, action: ActionsTypes): DialogsPageType => {
 
     switch (action.type) {
         case "UPDATE-NEW-MESSAGE-TEXT":

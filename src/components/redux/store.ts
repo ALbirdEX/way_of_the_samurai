@@ -1,6 +1,6 @@
 import dialogsReducer, {DialogActionsTypes} from "./dialogsReducer";
-import sidebarReducer from "./sidebarReducer";
 import profileReducer, {ProfileActionsTypes} from "./profileReducer";
+import sidebarReducer from "./sidebarReducer";
 
 export type FriendType = {
     id: number,
@@ -46,7 +46,7 @@ export type StoreType = {
     //addMessage: () => void
     //updateNewMessageText: (newMessageText: string) => void
     subscriber: (observe: () => void) => void
-    //dispatch: (action: ActionsTypes) => void
+    dispatch: (action: ActionsTypes) => void
 }
 
 export type ActionsTypes = DialogActionsTypes | ProfileActionsTypes
@@ -98,10 +98,10 @@ export const store: StoreType = {
 
     },
 
- /*   dispatch(action) {
+    dispatch(action) {
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
         this._callSubscriber()
-    }*/
+    }
 }
