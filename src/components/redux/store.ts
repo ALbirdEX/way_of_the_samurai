@@ -1,6 +1,6 @@
 import dialogsReducer, {DialogActionsTypes} from "./dialogsReducer";
-import profileReducer, {ProfileActionsTypes} from "./profileReducer";
 import sidebarReducer from "./sidebarReducer";
+import profileReducer, {ProfileActionsTypes} from "./profileReducer";
 
 export type FriendType = {
     id: number,

@@ -1,16 +1,7 @@
-import {ActionsTypes} from "./store";
+import {ActionsTypes, PostType, ProfilePageType} from "./store";
 
 export type ProfileActionsTypes = ReturnType<typeof addPostAC>
     | ReturnType<typeof updateNewPostTextAC>
-export type PostType = {
-    id: number,
-    message: string,
-    likesCount: number
-}
-export type ProfilePageType = {
-    posts: PostType[],
-    newPostText: string
-}
 
 const initialState: ProfilePageType = {
     posts: [
