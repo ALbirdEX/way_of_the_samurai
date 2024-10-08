@@ -23,7 +23,7 @@ export const App: React.FC<AppPropsType> = (props) => {
             <Header/>
             <Navbar state={props.state.sidebar}/>
             <div className={'app-wrapper-content'}>
-                <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogPage}
+                <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage}
                                                               dispatch={props.dispatch}/>}/>
                 <Route path="/profile" render={() => <Profile state={props.state.profilePage}
                                                               dispatch={props.dispatch}/>}/>

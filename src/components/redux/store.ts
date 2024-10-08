@@ -39,7 +39,7 @@ export type RootStateType = {
 
 export type StoreType = {
     _state: RootStateType
-    _callSubscriber: () => void
+    _callSubscriber: (state: RootStateType) => void
     getState: () => RootStateType
     //addPost: () => void
     //updateNewPostText: (newText: string) => void
@@ -102,6 +102,6 @@ export const store: StoreType = {
         this._state.profilePage = profileReducer(this._state.profilePage, action)
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
-        this._callSubscriber()
+        this._callSubscriber(this._state)
     }
 }
