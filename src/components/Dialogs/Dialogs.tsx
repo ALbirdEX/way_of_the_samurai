@@ -3,8 +3,9 @@ import s from './Dialogs.module.css'
 import {DialogItem} from "./DialogItem/DialogItem";
 import {Message} from "./Message/Message";
 import {DialogsPageType} from "../redux/store";
-import {AddNewItem} from "../AddNewItem";
+import {AddNewItem} from "./AddNewItem/AddNewItem";
 import {DialogActionsTypes} from "../redux/dialogsReducer";
+import {AddNewItemContainer} from "./AddNewItem/AddNewItemContainer";
 
 type DialogsPropsType = {
     state: DialogsPageType
@@ -25,8 +26,8 @@ export const Dialogs: React.FC<DialogsPropsType> = (props) => {
             </div>
 
             <div className={s.messages}>
-                <AddNewItem dispatch={props.dispatch}
-                            newMessageText={newMessageText}/>
+                <AddNewItemContainer dispatch={props.dispatch}
+                                     newMessageText={newMessageText}/>
                 {messageElement}
             </div>
         </div>

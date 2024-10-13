@@ -17,3 +17,5 @@ export const rerenderEntireTree = () => {
 
 rerenderEntireTree();
 reduxStore.subscribe(rerenderEntireTree)
+
+//TODO создать контайнерную, сделать деплой
