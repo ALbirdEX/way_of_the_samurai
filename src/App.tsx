@@ -8,25 +8,25 @@ import {Route} from "react-router-dom";
 import {News} from "./components/New/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Setting/Settings";
-import {ActionsTypes} from "./components/redux/store";
-import {AppRootStateType} from "./components/redux/reduxStore";
 
-type  AppPropsType = {
+/*type  AppPropsType = {
     state: AppRootStateType
     dispatch: (action: ActionsTypes) => void
-}
+}*/
 
-export const App: React.FC<AppPropsType> = (props) => {
+export const App: React.FC = () => {
 
     return (
         <div className={'app-wrapper'}>
             <Header/>
-            <Navbar state={props.state.sidebar}/>
+            <Navbar/>
             <div className={'app-wrapper-content'}>
-                <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage}
+                <Route path="/dialogs" render={() => <Dialogs/>}/>
+                <Route path="/profile" render={() => <Profile/>}/>*/
+                {/*<Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage}
                                                               dispatch={props.dispatch}/>}/>
                 <Route path="/profile" render={() => <Profile state={props.state.profilePage}
-                                                              dispatch={props.dispatch}/>}/>
+                                                              dispatch={props.dispatch}/>}/>*/}
                 <Route path="/news" component={News}/>
                 <Route path="/music" component={Music}/>
                 <Route path="/settings" component={Settings}/>

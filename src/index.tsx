@@ -3,19 +3,25 @@ import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import {App} from "./App";
 import React from "react";
-import {reduxStore} from "./components/redux/reduxStore";
+import {store} from "./components/redux/store";
+import {StoreContext} from "./storeContext";
 
 
 export const rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={reduxStore.getState()}
-                 dispatch={reduxStore.dispatch.bind(reduxStore)}/>
+            <StoreContext.Provider value={store}>
+               {/* <App state={store.getState()}
+                    dispatch={store.dispatch.bind(store)}/>*/}
+                <App/>
+            </StoreContext.Provider>
         </BrowserRouter>,
         document.getElementById('root'));
 }
 
 rerenderEntireTree();
-reduxStore.subscribe(rerenderEntireTree)
+store.subscriber(rerenderEntireTree)
+//reduxStore.subscribe(rerenderEntireTree)
 
-//TODO создать контайнерную, сделать деплой
+//TODO сделать деплой
+//TODO 44 урок
