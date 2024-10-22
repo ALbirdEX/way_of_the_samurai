@@ -1,6 +1,5 @@
 import s from "../Dialogs.module.css";
 import React from "react";
-import {AddNewItem} from "../AddNewItem/AddNewItem";
 
 type MessagePropsType = {
     message: string

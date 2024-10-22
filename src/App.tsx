@@ -9,27 +9,25 @@ import {News} from "./components/New/News";
 import {Music} from "./components/Music/Music";
 import {Settings} from "./components/Setting/Settings";
 
-/*type  AppPropsType = {
-    state: AppRootStateType
-    dispatch: (action: ActionsTypes) => void
-}*/
+export const PATH = {
+    DIALOG: '/dialogs',
+    PROFILE: '/profile',
+    NEWS: '/news',
+    MUSIC: '/music',
+    SETTING: '/settings',
+}
 
 export const App: React.FC = () => {
-
     return (
         <div className={'app-wrapper'}>
             <Header/>
             <Navbar/>
             <div className={'app-wrapper-content'}>
-                <Route path="/dialogs" render={() => <Dialogs/>}/>
-                <Route path="/profile" render={() => <Profile/>}/>*/
-                {/*<Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage}
-                                                              dispatch={props.dispatch}/>}/>
-                <Route path="/profile" render={() => <Profile state={props.state.profilePage}
-                                                              dispatch={props.dispatch}/>}/>*/}
-                <Route path="/news" component={News}/>
-                <Route path="/music" component={Music}/>
-                <Route path="/settings" component={Settings}/>
+                <Route path={PATH.DIALOG} render={() => <Dialogs/>}/>
+                <Route path={PATH.PROFILE} render={() => <Profile/>}/>*/
+                <Route path={PATH.NEWS} component={News}/>
+                <Route path={PATH.MUSIC} component={Music}/>
+                <Route path={PATH.SETTING} component={Settings}/>
             </div>
         </div>
     )

@@ -4,24 +4,21 @@ import {BrowserRouter} from "react-router-dom";
 import {App} from "./App";
 import React from "react";
 import {store} from "./components/redux/store";
-import {StoreContext} from "./storeContext";
+import {Provider} from "./storeContext";
 
 
 export const rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <StoreContext.Provider value={store}>
-               {/* <App state={store.getState()}
-                    dispatch={store.dispatch.bind(store)}/>*/}
+            <Provider store={store}>
                 <App/>
-            </StoreContext.Provider>
+            </Provider>
         </BrowserRouter>,
         document.getElementById('root'));
 }
 
 rerenderEntireTree();
 store.subscriber(rerenderEntireTree)
-//reduxStore.subscribe(rerenderEntireTree)
 
 //TODO сделать деплой
 //TODO 44 урок

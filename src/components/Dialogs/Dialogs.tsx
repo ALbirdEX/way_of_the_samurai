@@ -5,19 +5,8 @@ import {Message} from "./Message/Message";
 import {AddNewItemContainer} from "./AddNewItem/AddNewItemContainer";
 import {StoreContext} from "../../storeContext";
 
-/*type DialogsPropsType = {
-    state: DialogsPageType
-    dispatch: (action: DialogActionsTypes) => void
-}*/
-
 export const Dialogs: React.FC = () => {
 
-
-    /*    const {dialogs, messages, newMessageText} = props.state  //деструктуризация*/
-
-    /*const dialogsElement = dialogs.map(d => <DialogItem name={d.name} id={d.id} key={d.id}/>)
-    const messageElement = messages.map(m => <Message message={m.message} key={m.id}/>)
-*/
     return <StoreContext.Consumer>
         {store => {
             const {dialogs, messages, newMessageText} = store.getState().dialogsPage

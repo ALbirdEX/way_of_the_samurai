@@ -1,28 +1,25 @@
 import React from 'react';
-import {ProfilePageType,} from "../../redux/store";
-import {addPostAC, ProfileActionsTypes, updateNewPostTextAC} from "../../redux/profileReducer";
+import {addPostAC, updateNewPostTextAC} from "../../redux/profileReducer";
 import {MyPosts} from "./MyPosts";
+import {StoreContext} from "../../../storeContext";
 
-type MyPostsPropsContainerType = {
-    state: ProfilePageType
-    dispatch: (action: ProfileActionsTypes) => void
-}
+export const MyPostsContainer = () => {
+    return <StoreContext.Consumer>
+        {store => {
+            const {posts, newPostText,} = store.getState().profilePage   //деструктуризация
 
-export const MyPostsContainer = (props: MyPostsPropsContainerType) => {
+            const onPostChange = (text: string) => {
+                store.dispatch(updateNewPostTextAC(text))
+            }
 
-    const {posts, newPostText,} = props.state   //деструктуризация
+            const addPost = () => {
+                store.dispatch(addPostAC())
+            }
 
-    const onPostChange = (text: string) => {
-        props.dispatch(updateNewPostTextAC(text))
-    }
-
-    const addPost = () => {
-        props.dispatch(addPostAC())
-    }
-
-    return <MyPosts posts={posts}
-                    onPostChange={onPostChange}
-                    addPost={addPost}
-                    newPostText={newPostText}
-    />
+            return <MyPosts posts={posts}
+                            onPostChange={onPostChange}
+                            addPost={addPost}
+                            newPostText={newPostText}/>
+        }}
+    </StoreContext.Consumer>
 }
