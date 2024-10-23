@@ -1,27 +1,35 @@
-import {ActionsTypes, DialogsPageType, MessageType} from "./store";
+type DialogType = {
+    id: number,
+    name: string
+}
 
+type MessageType = {
+    id: number,
+    message: string
+}
+
+export type InitialStateType = typeof initialState
 
 export type DialogActionsTypes = ReturnType<typeof addMessageAC>
     | ReturnType<typeof updateNewMessageTextAC>
 
-const initialState: DialogsPageType = {
-        dialogs: [
-            {id: 1, name: 'Dima'},
-            {id: 2, name: 'Victor'},
-            {id: 3, name: 'Andrei'},
-            {id: 4, name: 'Alex'}
-        ],
-        messages: [
-            {id: 1, message: 'Hi? who is it'},
-            {id: 2, message: 'Hi,who is it?'},
-            {id: 3, message: 'WTF...'},
-            {id: 4, message: 'It is perfect'}
-        ],
-        newMessageText: ''
-    }
+const initialState = {
+    dialogs: [
+        {id: 1, name: 'Dima'},
+        {id: 2, name: 'Victor'},
+        {id: 3, name: 'Andrei'},
+        {id: 4, name: 'Alex'}
+    ] as DialogType[],
+    messages: [
+        {id: 1, message: 'Hi? who is it'},
+        {id: 2, message: 'Hi,who is it?'},
+        {id: 3, message: 'WTF...'},
+        {id: 4, message: 'It is perfect'}
+    ] as MessageType[],
+    newMessageText: ''
+}
 
-const dialogsReducer = (state: DialogsPageType = initialState, action: ActionsTypes): DialogsPageType => {
-    debugger
+const dialogsReducer = (state: InitialStateType = initialState, action: DialogActionsTypes): InitialStateType => {
     switch (action.type) {
         case "UPDATE-NEW-MESSAGE-TEXT":
             state.newMessageText = action.payload.newMessageText

@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import {App} from "./App";
 import React from "react";
-import {store} from "./components/redux/store";
-import {Provider} from "./storeContext";
+import {reduxStore} from "./components/redux/reduxStore";
+import { Provider } from 'react-redux';
 
 
 export const rerenderEntireTree = () => {
     ReactDOM.render(
         <BrowserRouter>
-            <Provider store={store}>
+            <Provider store={reduxStore}>
                 <App/>
             </Provider>
         </BrowserRouter>,
@@ -18,7 +18,7 @@ export const rerenderEntireTree = () => {
 }
 
 rerenderEntireTree();
-store.subscriber(rerenderEntireTree)
+reduxStore.subscribe(rerenderEntireTree)
 
 //TODO сделать деплой
-//TODO 44 урок
+//TODO 45

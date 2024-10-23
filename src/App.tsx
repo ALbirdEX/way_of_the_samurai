@@ -23,8 +23,8 @@ export const App: React.FC = () => {
             <Header/>
             <Navbar/>
             <div className={'app-wrapper-content'}>
-                <Route path={PATH.DIALOG} render={() => <Dialogs/>}/>
-                <Route path={PATH.PROFILE} render={() => <Profile/>}/>*/
+                <Route path={PATH.PROFILE} render={() => <Profile/>}/>
+                {/* <Route path={PATH.DIALOG} render={() => <Dialogs/>}/>*/}
                 <Route path={PATH.NEWS} component={News}/>
                 <Route path={PATH.MUSIC} component={Music}/>
                 <Route path={PATH.SETTING} component={Settings}/>

@@ -10,9 +10,9 @@ export const Navbar = () => {
             <div className={s.item}>
                 <NavLink to={PATH.PROFILE} activeClassName={s.activeLink}>Profile</NavLink>
             </div>
-            <div className={s.item}>
+           {/* <div className={s.item}>
                 <NavLink to={PATH.DIALOG} activeClassName={s.activeLink}>Messages</NavLink>
-            </div>
+            </div>*/}
             <div className={s.item}>
                 <NavLink to={PATH.NEWS}activeClassName={s.activeLink}>News</NavLink>
             </div

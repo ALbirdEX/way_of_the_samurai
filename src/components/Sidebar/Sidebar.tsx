@@ -1,10 +1,10 @@
 import React from 'react';
 import s from './Sidebar.module.css'
-import {StoreContext} from "../../storeContext";
+
 
 export const Sidebar = () => {
 
-    return <StoreContext.Consumer>
+    return <div></div>/*<StoreContext.Consumer>
         {store => {
             return <div className={s.sidebarItems}>
                 {store.getState().sidebar.friends.map(f => <div key={f.id}>
@@ -16,5 +16,5 @@ export const Sidebar = () => {
                 </div>)}
             </div>
         }}
-    </StoreContext.Consumer>
+    </StoreContext.Consumer>*/
 };

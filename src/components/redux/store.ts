@@ -14,7 +14,7 @@ export type DialogType = {
     id: number,
     name: string
 }
-export type PostType = {
+type PostType = {
     id: number,
     message: string,
     likesCount: number
@@ -51,6 +51,7 @@ export type StoreType = {
 
 export type ActionsTypes = DialogActionsTypes | ProfileActionsTypes
 
+/*
 export const store: StoreType = {
     _state: {
         profilePage: {
@@ -104,4 +105,4 @@ export const store: StoreType = {
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
         this._callSubscriber(this._state)
     }
-}
+}*/
