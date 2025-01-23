@@ -46,7 +46,6 @@ let mapStateToProps = (state: AppRootStateType): MapStatePropsType => {
 }
 
 let mapDispatchToProps = (dispatch: Dispatch): MapDispatchPropsType => {
-    debugger
     return {
         onPostChange: (text: string) => {
             dispatch(updateNewPostTextAC(text))

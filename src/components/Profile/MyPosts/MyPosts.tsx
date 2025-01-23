@@ -3,24 +3,11 @@ import s from './MyPosts.module.css';
 import {Post} from './Post/Post';
 import {MyPostsPropsType} from "./MyPostsContainer";
 
-/*
-type MyPostsPropsType = {
-    posts: PostType[]
-    onPostChange: (text: string) => void
-    addPost: () => void
-    newPostText: string
-}
-*/
-
 export const MyPosts = (props: MyPostsPropsType) => {
 
     let newPostElement = React.createRef<HTMLTextAreaElement>()
 
-
-    console.log(newPostElement)
-
     const onPostChange = () => {
-        debugger
         if (newPostElement.current?.value) {
             props.onPostChange(newPostElement.current.value)
         }

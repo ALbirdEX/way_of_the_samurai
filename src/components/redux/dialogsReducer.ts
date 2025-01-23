@@ -26,22 +26,27 @@ const initialState = {
         {id: 3, message: 'WTF...'},
         {id: 4, message: 'It is perfect'}
     ] as MessageType[],
-    newMessageText: ''
+    newMessageText: '1'
 }
 
 const dialogsReducer = (state: InitialStateType = initialState, action: DialogActionsTypes): InitialStateType => {
     switch (action.type) {
-        case "UPDATE-NEW-MESSAGE-TEXT":
-            state.newMessageText = action.payload.newMessageText
-            return state
-        case "ADD-MESSAGE":
+        case "UPDATE-NEW-MESSAGE-TEXT": {
+            //state.newMessageText = action.payload.newMessageText
+            let copyState = {...state, newMessageText: action.payload.newMessageText}
+            return copyState
+        }
+        case "ADD-MESSAGE": {
             const newMessage: MessageType = {
                 id: new Date().getTime(),
                 message: state.newMessageText
             }
-            state.messages.push(newMessage)
-            state.newMessageText = ''
-            return state
+            //state.messages.push(newMessage)
+            let copyState = {...state, messages: [...state.messages]}
+            copyState.messages.push(newMessage)
+            copyState.newMessageText = ''
+            return copyState
+        }
         default:
             return state
     }

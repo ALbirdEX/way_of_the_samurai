@@ -20,7 +20,6 @@ const initialState = {
 }
 
 const profileReducer = (state: InitialStateType = initialState, action: ProfileActionsTypes): InitialStateType => {
-    debugger
     switch (action.type) {
         case "ADD-POST": {
             const newPost: PostType = {
@@ -28,7 +27,7 @@ const profileReducer = (state: InitialStateType = initialState, action: ProfileA
                 message: state.newPostText,
                 likesCount: 0
             }
-            let copyState = {...state}
+            let copyState = {...state, posts: [...state.posts]}
             copyState.posts.push(newPost)
             copyState.newPostText = ''
             return copyState
@@ -41,6 +40,7 @@ const profileReducer = (state: InitialStateType = initialState, action: ProfileA
             return state
     }
 };
+
 export const addPostAC = () => ({type: "ADD-POST"}) as const
 export const updateNewPostTextAC = (newText: string) => ({type: "UPDATE-NEW-POST-TEXT", payload: {newText}}) as const
 
